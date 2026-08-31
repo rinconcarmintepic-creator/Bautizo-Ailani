@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bautizo Ailani</title>
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+    font-family: 'MinimalistaLight'; /* Dale un nombre fácil de recordar */
+    src: url('fonts/Garet-Book.woff2') format('woff2'), /* Usa WOFF2 si es posible */
+         url('fonts/MiFuenteLight.woff') format('woff'),
+         url('fonts/MiFuenteLight.ttf') format('truetype');
+    font-weight: 300; /* Asigna el peso que corresponde a tu archivo (e.g., Light) */
+    font-style: normal;
+    /* CLAVE para el contador: Si la fuente lo soporta, fuerzala a ser tabular */
+    font-feature-settings: "tnum"; 
+    font-variant-numeric: tabular-nums;
+}
+@font-face {
+    font-family: 'EleganteCursiva'; /* ¡NUEVO NOMBRE! */
+    src: url('fonts/Signatura_Monoline.woff2') format('woff2'),
+         url('fonts/MiFuenteCursiva.woff') format('woff');
+    font-weight: 600; /* Asigna el peso de tu nuevo archivo */
+    font-style: normal;
+    /* Si es cursiva, puedes poner font-style: italic; si el archivo es italic */
+}
+
+@font-face {
+    font-family: 'thinifont'; /* ¡NUEVO NOMBRE! */
+    src: url('fonts/Milliard_Thin.woff2') format('woff2'),
+         url('fonts/MiFuenteCursiva.woff') format('woff');
+    font-weight: 400; /* Asigna el peso de tu nuevo archivo */
+    font-style: normal;
+    /* Si es cursiva, puedes poner font-style: italic; si el archivo es italic */
+}
+
+@font-face {
+    font-family: 'tempting'; /* ¡NUEVO NOMBRE! */
+    src: url('fonts/Tempting.woff2') format('woff2');
+    font-weight: 400; /* Asigna el peso de tu nuevo archivo */
+    font-style: normal;
+    /* Si es cursiva, puedes poner font-style: italic; si el archivo es italic */
+}
+
+/* MODIFICACIÓN: Nuevas variables para separar fondos */
+:root{
+  --cover-image: url('assets/portada.JPG'); /* 🖼️ IMAGEN SOLO PARA LA PORTADA (Cámbiala) */
+  --main-bg-image: url('assets/fondo_general.jpg'); /* 🌄 IMAGEN PARA EL FONDO GENERAL (Cámbiala) */
+  --overlay: rgba(6,6,6,0.10);
+  --accent-gold: #FFD700;
+  --accent-red: #B30000;
+  --image-size: 340px; /* Tamaño fijo para la imagen de presentación */
+  --carousel-height: 350px; /* Altura fija para el carrusel */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+    height:100%;
+    overflow-x: hidden !important;
+}
+body{
+    font-family: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial;
+    color:#fff;
+    background-color: #000;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    /* QUITAMOS EL OVERFLOW DE AQUÍ, YA QUE #content LO MANEJA */
+    /* overflow-x: hidden; */ 
+    
+    /* === FONDO FIJO EN BODY (COMPROBADO) === */
+    background:var(--main-bg-image) center/cover no-repeat; 
+    background-size: cover;
+}
+button{font-family:inherit}
+
+.section.no-background {
+  background: none !important; /* Quita el fondo semitransparente */
+  backdrop-filter: none !important; /* Quita el efecto de desenfoque */
+  box-shadow: none !important; /* Quita cualquier sombra si la hubiera */
+  padding-bottom: 0 !important; /* Ajusta el padding si es necesario */
+}
+
+/* COVER - Portada estática */
+#cover{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  background: linear-gradient(var(--overlay),var(--overlay)), var(--cover-image) center/cover fixed no-repeat;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+#coverContent{max-width:980px;text-align:center}
+#coverTitle{
+  /* Usaremos Raleway Light (300) y le daremos un espaciado amplio */
+  font-family:'Raleway', sans-serif; /* Usamos Raleway */
+  color:#fff; /* Color blanco o muy claro */
+  font-size:1.5rem; /* Tamaño un poco más discreto */
+  font-weight:300; /* CLAVE: Para el estilo Light/Minimalista */
+  line-height:1;
+  letter-spacing: 0.25em; /* Espaciado amplio para elegancia */
+  text-transform: uppercase; /* Mayúsculas para un look limpio */
+  margin-bottom: 2rem; /* Espacio antes del nombre */
+}
+#coverSubtitle{
+  /* Eliminamos el estilo anterior y definiremos los elementos por separado */
+  font-family:'Raleway', sans-serif;
+  color:#ffeceb;
+  font-size:1.15rem; /* Tamaño base más pequeño */
+  margin:0; /* Eliminamos el margin original */
+}
+
+/* NUEVOS ESTILOS: Botón de "Scroll Down" */
+#scrollDownBtn {
+    display: block;
+    margin: 2rem auto 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    
+    /* Estilo de la viñeta */
+    color: #ee96a2;
+    font-size: 2.5rem; 
+    transition: all 0.3s ease;
+    
+    /* Animación sutil */
+    animation: bounce 2s infinite; 
+    opacity: 0.7;
+}
+
+#scrollDownBtn:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+/* Definición de la animación de rebote para la flecha */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.quinceanera-name {
+    font-family:'Tempting';
+    color:#eb84a5; /* Mantenemos el color dorado */
+    font-size: 3.5rem; /* Un tamaño grande para el nombre */
+    display: block;
+    line-height: 1.5;
+    margin: 1rem 0 1.4rem; /* Espacio superior e inferior */
+
+}
+.event-date {
+    font-family:'Thinifont', sans-serif;
+    font-weight:300; /* CLAVE: Estilo Light para la fecha */
+    font-size: 1.15rem; 
+    display: block;
+    margin-bottom: 4rem; /* Espacio antes del botón */
+}
+#enterBtn{
+    margin-top:0; 
+    padding:1rem 2.2rem;
+    border-radius:999px; 
+    border: 2px solid #ee96a2; 
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff; 
+    font-weight: 200; /* Lo hacemos menos grueso para el estilo light */
+    font-size: 1rem; /* Un poco más grande */
+    letter-spacing: 0.1em; /* Un poco de espaciado */
+    text-transform: uppercase; /* Para mantener la limpieza */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+    cursor:pointer;
+    transition: all 0.3s ease; /* Transición para el hover */
+}
+#enterBtn:hover{
+    background: #ffc1bd; /* El fondo se llena de dorado */
+    color: #000; /* El texto se vuelve negro para contrastar */
+    box-shadow: 0 6px 20px #ce7281; /* Sombra dorada */
+    transform: scale(1.02); /* Pequeña animación */
+}
+#enterBtn:active{transform:scale(.995)}
+
+/* Contenedor principal para la invitación */
+#content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    
+    background: none; 
+    
+    display: none; 
+}
+.container{max-width:920px;margin:2rem auto;padding: 3rem 1.5rem;}
+.section{
+    background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18));
+    border-radius:16px;
+    padding:2rem;
+    margin-bottom:1.5rem;
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .6s ease, transform .6s ease
+}
+.section.visible{opacity:1;transform:translateY(0)}
+.section h2{
+  /* Estilo Modificado: Cursiva elegante (Great Vibes) */
+  font-family: 'Tempting', 'Great Vibes', cursive; 
+  color: #FFFFFF; 
+  font-size: 1.8rem; /* Más grande para que destaque la cursiva */
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 400; /* Peso normal para la cursiva */
+  text-transform: none; /* Dejamos la cursiva tal cual */
+  letter-spacing: 0; /* Sin espaciado amplio */
+}
+.divider{
+  height: 1.5px !important;
+  width: 64px !important;
+  background: #f1d0b1 !important;
+  margin: 1rem auto 2rem !important;
+  border-radius: 1px !important;
+}
+.section .divider {
+    height: 1.5px;
+    width: 64px;
+}
+
+#parents h3 {
+    font-family: 'EleganteCursiva', cursive; /* Usamos la cursiva elegante */
+    color: var(--accent-gold); 
+    font-size: 2.2rem; /* Más grande que el h3 de las tarjetas */
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+/* NUEVO: Divisor más pequeño para los subtítulos */
+.divider-small {
+    width: 40px !important; /* Más corto que el divisor de sección */
+    margin: 0.5rem auto 1rem !important; /* Más compacto */
+    height: 1px !important; /* Un poco más delgado */
+}
+
+/* Ajuste: Si deseas que los nombres de los Padres estén en negrita (como en el HTML de ejemplo) */
+.parents-grid .nameCard p {
+    font-weight: 400; /* Peso normal para los nombres */
+}
+
+.section p{
+  color:#ffffff;
+  text-align:center;
+  font-size:1.05rem;
+  font-family: 'Raleway', sans-serif; /* Aseguramos Raleway */
+  font-weight: 300; /* CLAVE: Estilo Light */
+  line-height: 1.6; /* Un poco más de espacio entre líneas */
+}
+#presentation {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3rem 1rem 2rem;
+}
+
+/* PRESENTATION MODIFICACIÓN: Imagen en círculo/recuadro elegante */
+#presentationImg{
+  /* Tamaño base: Permitimos que crezca hasta el límite de la variable */
+  width: auto; 
+  height: auto; 
+  max-width: var(--image-size); /* Limita el ancho al tamaño de la variable (ej. 550px) */
+  max-height: 90vh; /* Para evitar que sea demasiado grande en pantallas pequeñas */
+  
+  /* Comportamiento visual */
+  object-fit: contain; /* CLAVE: Asegura que la imagen se muestre COMPLETA, sin recortarse */
+  object-position: center top; /* Alinea hacia arriba si hay espacio vacío */
+  
+  display: block;
+  margin: 0 auto 2rem; /* Centra la imagen y da espacio inferior */
+
+}
+
+#presentation .nameImg{display:block;margin:1rem auto}
+#presentation .nameFallback{font-family:'Great Vibes',cursive;color:#cc6075;font-size:2.5rem;text-align:center}
+
+/* COUNTDOWN */
+#countdownWrap{
+  display:flex;
+  justify-content:center;
+  gap: 0; /* Eliminamos el gap aquí, ya que el margin en .countBox lo maneja */
+  /* font-weight:600; -- podemos eliminarlo, ya no es necesario */
+}
+.countBox{
+  background: transparent; /* Fondo completamente transparente */
+  padding: 0; /* Sin padding, solo el espacio entre ellos */
+  border-radius: 0; /* Sin bordes redondeados */
+  text-align:center;
+  /* Espaciado entre los números para que no estén tan juntos */
+  margin: 0 0.8rem; /* Añadir un poco de margen horizontal */
+}
+.countBox .num{
+  font-family: 'Thinifont', 'Raleway', sans-serif; /* Usamos tu fuente primero */
+  font-size: 3.5rem; 
+  color: #cc6075; 
+  font-weight: 300; /* Asignamos el peso de la declaración @font-face */
+  line-height: 1; 
+  display: block; 
+  margin-bottom: 0.5rem; 
+font-variant-numeric: tabular-nums;
+-moz-font-feature-settings: "tnum"; 
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+.countBox .label{
+  font-family: 'Raleway', sans-serif; /* Usamos Raleway */
+  font-size: 0.8rem; /* Más pequeño para la etiqueta */
+  color: #fff; /* Blanco puro para un contraste limpio */
+  font-weight: 300; /* CLAVE: Estilo Light */
+  text-transform: uppercase; /* Mayúsculas */
+  letter-spacing: 0.1em; /* Espaciado sutil para legibilidad */
+}
+
+/* CAROUSEL MODIFICACIÓN: Minimalista y elegante */
+.carousel{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  height: var(--carousel-height); 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.slides{display:flex;transition:transform .6s ease; height: 100%;}
+.slides img{
+  width:100%;
+  flex:0 0 100%;
+  display:block;
+  height: 100%;
+  object-fit: contain; 
+  cursor: zoom-in; 
+}
+
+/* Navegación y Puntos Minimalistas */
+.carousel .nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.25); 
+  border:1px solid var(--accent-gold); 
+  color:var(--accent-gold);
+  width:36px; 
+  height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size: 1.2rem; 
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.carousel .nav:hover { opacity: 1; background:rgba(0,0,0,0.4); } 
+#prev{left:10px}
+#next{right:10px}
+
+.carousel .dots{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:10px;
+  display:flex;
+  gap:8px;
+  background: rgba(0,0,0,0.15); 
+  border-radius: 999px;
+  padding: 5px 10px;
+}
+.carousel .dots button{
+  width:8px; 
+  height:8px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,0.4); 
+  transition: background 0.3s;
+}
+.carousel .dots button.active{background:var(--accent-gold); width:10px; height:10px;} 
+
+/* LIGHTBOX (MODAL DE IMAGEN COMPLETA) */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100; 
+  background: rgba(0, 0, 0, 0.95);
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+#lightbox.visible { 
+  display: flex; 
+}
+
+#lightbox img {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain; 
+  transition: transform 0.3s ease;
+}
+
+#closeLightbox {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: background 0.3s;
+}
+#closeLightbox:hover { background: var(--accent-red); }
+
+#fullscreenBtn {
+  position: absolute;
+  top: 15px;
+  right: 125px; 
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.3s;
+}
+#fullscreenBtn:hover { background: var(--accent-gold); color: #000; }
+
+.vertical-stack {
+    display: flex;
+    flex-direction: column; /* CLAVE: Apila los elementos verticalmente */
+    gap: 2.5rem; /* Aumenta el espacio vertical entre cada grupo de padrino */
+    align-items: center; /* Centra los elementos apilados horizontalmente */
+    width: 100%;
+}
+
+/* PADRES/PADRINOS, RSVP, BUTTONS, ETC. (sin cambios) */
+.namesGrid {
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.5rem; /* Aumento el gap para separar un poco más el texto */
+    justify-content:center;
+    margin-top: 1rem; /* Pequeño margen superior para separar del título */
+}
+.nameCard{
+    /* ELIMINAMOS EL FONDO Y LOS BORDES/SOMBRAS */
+    background:none; /* Fondo completamente transparente */
+    padding:0; /* Eliminamos el padding */
+    border-radius:0; /* Sin bordes redondeados */
+    border:none; /* Sin borde */
+    box-shadow: none; /* Sin sombra */
+    min-width:220px;
+    text-align:center;
+}
+/* Estilo para los títulos H3 dentro de las tarjetas de Padrinos/Padres (Aseguramos que no tengan margen inferior que choque con el texto) */
+.nameCard h3{
+    font-family:'Playfair Display',serif;
+    color:#f2c0cc;
+    margin-bottom:.3rem; /* Reducimos el margen inferior */
+    font-size: 1.25rem;
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.35);
+}
+.nameCard p {
+    font-family: 'thinifont', sans-serif; /* ¡AQUÍ ESTÁ EL CAMBIO! */
+    color:#FFFFFF;
+    font-size: 1.20rem; 
+    line-height: 1.4;
+    font-weight: 300; 
+}
+.parents-grid .nameCard p {
+    font-family: 'thinifont', sans-serif; /* ¡Y AQUÍ TAMBIÉN! */
+    font-size: 1.25rem; 
+    font-weight: 400; 
+}
+#rsvpBtn{display:block;margin:0.8rem auto;padding:0.7rem 1.6rem;border-radius:999px;border:none;background:linear-gradient(135deg,#ee96a2,#ffc1bd);color:#000000;font-weight:700}
+#backToCover{position:fixed;top:29px;left:16px;display:flex;align-items:center;justify-content:center;width:37px;height:37px;border-radius:50%;background:transparent;color:transparent;border:none;z-index:15;backdrop-filter: none;cursor:pointer;opacity:1}
+#backToCover img{max-width:100%;height:auto;border-radius:50%}
+#backToCover.hidden{display:none}
+#musicControl{position:fixed;top:16px;right:20px;width:60px;height:60px;border-radius:50%;background:transparent; color:#1b0707;display:flex;align-items:center;justify-content:center;border:none;z-index:15;cursor:pointer}
+#musicIcon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: 60%; /* Ajusta el tamaño de tu icono dentro del botón (ej. 60%) */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Define la imagen por defecto (Música ON) */
+    background-image: url('assets/music_on.png'); 
+}
+#musicControl.paused #musicIcon {
+    background-image: url('assets/music_off.png'); 
+}
+/* RESPONSIVE */
+@media (max-width:700px){
+
+    #presentation {
+        justify-content: center; /* MÓVIL: centrar verticalmente */
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        min-height: calc(100vh - 80px); /* deja espacio real para la flecha */
+    }
+
+  #coverTitle{font-size:1.8rem; letter-spacing: 0.25em;}
+  .quinceanera-name {font-size: 2.rem;}
+.container {
+        padding: 3rem 0.8rem; /* Un poco menos de padding horizontal en móvil */
+    }
+:root { 
+        --image-size: 90vw; 
+        --carousel-height: 400px; 
+    }
+#presentationImg {
+        max-width: 95vw !important; /* Ligeramente más pequeña para asegurar margen */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        /* Si la imagen es más alta que ancha, width: 100% en móvil ayuda */
+        width: 100% !important; 
+    }
+
+.countBox .num {
+    font-size: 2.2rem; /* Más pequeño en móviles */
+  }
+  .countBox .label {
+    font-size: 0.7rem; /* Más pequeño en móviles */
+  }
+  .countBox {
+    margin: 0 0.4rem; /* Reducir el margen en móviles */
+  }
+}
+
+  /* AÑADIR/MODIFICAR ESTO para móvil */
+  :root { 
+    --image-size: 90vw; /* 90% del ancho de la vista (viewport width) */
+    --carousel-height: 400px; 
+  }
+}
+html {
+    /* En dispositivos móviles, esto puede ayudar a que el body mantenga su altura y el fixed funcione */
+    overflow-y: hidden; 
+    -webkit-overflow-scrolling: touch; /* Vuelve a declarar por si acaso */
+}
+</style>
+<!-- OPEN GRAPH PREVIEW -->
+<meta property="og:title" content="Bautizo AILANI">
+<meta property="og:description" content="Acompáñame a celebrar un día muy especial.">
+<meta property="og:image" content="https://xv-ileana-three.vercel.app/assets/miniatura1.jpg">
+<meta property="og:image:type" content="image/jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://xv-ileana-three.vercel.app">
+<meta property="og:type" content="website">
+	
+</head>
+<body>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="musica/musica.mp3" type="audio/mpeg">
+</audio>
+<button id="musicControl" aria-label="Control de música">
+    <span id="musicIcon"></span> 
+</button>
+
+<button id="backToCover" class="hidden" title="Volver a la portada">
+  <img src="assets/btn-volver.png" alt="Volver" onerror="this.style.display='none'">
+  <span id="backFallback" style="display:none;color:var(--accent-gold);font-size:1.1rem">⬅</span>
+</button>
+
+<div id="cover">
+  <div id="coverContent">
+    <div id="coverTitle">Mi Bautizo</div>
+    
+    <div id="coverSubtitle">
+        <span class="quinceanera-name">Ailani Yaretzi</span>
+    </div>
+
+    <div class="event-date">12 - SEPTIEMBRE - 2026</div>
+    
+    <button id="enterBtn">Ver Invitación</button>
+</div>
+</div>
+
+<div id="content" aria-hidden="true"> 
+  <div class="container">
+   <section id="presentation" class="section no-background">
+    
+      <img src="assets/presentacion.png" alt="Presentación Ailani" id="presentationImg">
+      <img src="assets/nombre.png" alt="Ailani Yaretzi" class="nameImg" onerror="this.style.display='none'">
+    <div class="nameFallback" id="nameFallback">Pulsa para continuar</div>
+<button id="scrollDownBtn" aria-label="Ver siguiente sección">
+    <span>&#x25BC;</span> </button>
+  </section>
+	
+    <section id="countdown" class="section">
+    <h2>Solo Faltan</h2>
+    <div class="divider"></div>
+    <div id="countdownWrap">
+      <div class="countBox"><div class="num" id="days">0</div><div class="label">Días</div></div>
+      <div class="countBox"><div class="num" id="hours">0</div><div class="label">Horas</div></div>
+      <div class="countBox"><div class="num" id="minutes">0</div><div class="label">Minutos</div></div>
+      <div class="countBox"><div class="num" id="seconds">0</div><div class="label">Segundos</div></div>
+    </div>
+  </section>
+
+  <section id="parents" class="section">
+    <h2>Mis Padres</h2>
+    <div class="divider"></div>
+    
+    <div class="namesGrid parents-grid">
+        <div class="nameCard">
+            <p>
+                Benjamin Herrera<br>
+                &<br>
+                Karla Lozano
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="godparents" class="section">
+    <h2>Mis Padrinos</h2>
+    <div class="divider"></div>
+
+    <div class="vertical-stack"> 
+        
+        <div class="nameCard">
+            <h3>Padrinos de Bautizo</h3>
+            <p>
+                Carlos Contreras<br>
+                &<br>
+                Sonia Herrera
+            </p>
+        </div>
+        
+        <div class="nameCard">
+            <h3>Padrinos de Presentación</h3>
+            <p>
+                Karla Olvera<br>
+                &<br>
+                Jorge Benítez
+            </p>
+        </div>
+        
+    </div>
+</section>
+
+<section id="ceremony" class="section">
+    <h2>Ceremonia Religiosa</h2>
+    <div class="divider"></div>
+    <p>
+        Templo San Rafael Arcangel, Carlle Turín 45 Fracc. Ciudad del Valle, Tepic.
+        <br>Hora: 11:00 AM
+    </p>
+
+    <p style="margin-top: 1rem;">
+        <a href="https://maps.app.goo.gl/JcdTr6Z53xpTD7ZQ7" target="_blank" style="color:#f2c0cc;
+text-decoration:underline; font-size: 1.1rem; font-weight: 600; text-shadow: 1px 1px 3px rgba(0,0,0,0.35);">
+            Abrir Navegación
+        </a>
+    </p>
+    
+    <div id="mapCeremony" class="map-container">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1856.2060706353168!2d-104.8863634!3d21.4915709!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84273722057a9ff9%3A0x8ba8a21c5fbb7b5a!2sTemplo%20San%20Rafael%20Arcangel!5e0!3m2!1ses-419!2smx!4v1787789904776!5m2!1ses-419!2smx"
+width="100%" 
+height="300" 
+style="border:0; border-radius: 8px; margin-top: 2rem;" 
+allowfullscreen="" 
+loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+    <section id="reception" class="section">
+    <h2>Recepción</h2>
+    <div class="divider"></div>
+    <p>
+        Casino Campestre Infantil Papalote, C. Prol. Prisciliano Sanchez 527, Col. Caja de Agua, Tepic.
+        <br>Hora: 3:00 PM
+    </p>
+
+    <p style="margin-top: 1rem;">
+        <a href="https://maps.app.goo.gl/UhP4uHkjHZvU2kvs9" target="_blank" style="color:#f2c0cc;text-decoration:underline; font-size: 1.1rem; font-weight: 600;text-shadow: 1px 1px 3px rgba(0,0,0,0.35);">
+            Abrir Navegación
+        </a>
+    </p>
+    
+    <div id="mapReception" class="map-container">
+      
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3712.331540820454!2d-104.8956015!3d21.49473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842736e10e9bb417%3A0x6b0d9355dcb9bd8!2sPapalote!5e0!3m2!1ses-419!2smx!4v1787790316295!5m2!1ses-419!2smx"   
+  width="100%" 
+height="300" 
+style="border:0; border-radius: 8px; margin-top: 2rem;" 
+allowfullscreen="" 
+loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+   <section id="rsvp" class="section">
+    <h2>Asistencia</h2>
+    <div class="divider"></div>
+    <p>Por favor confirma tu asistencia vía WhatsApp:</p> 
+
+    <div style="margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <input 
+            type="text" 
+            id="guestName" 
+            placeholder="Escribe tu nombre y apellido" 
+            style="width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid #ee96a2; background: rgba(0,0,0,0.30); color: #FFFFFF; font-size: 1rem; font-family: 'Raleway', sans-serif; text-align: center;"
+            />
+    </div>
+
+    <button id="rsvpBtn">Confirmar Asistencia</button>
+</section>
+  </div>
+</div>
+
+<div id="lightbox">
+  <button id="closeLightbox">✕ Cerrar</button>
+  <img id="lightboxImg" src="" alt="Ampliar">
+</div>
+
+<script>
+// Elements
+const cover = document.getElementById('cover');
+const enterBtn = document.getElementById('enterBtn');
+const content = document.getElementById('content');
+const sections = document.querySelectorAll('.section');
+const backBtn = document.getElementById('backToCover');
+const music = document.getElementById('bgMusic');
+const musicControl = document.getElementById('musicControl');
+const nameImg = document.querySelector('.nameImg');
+const nameFallback = document.getElementById('nameFallback');
+
+// =========================================================
+// LOGICA DE SCROLL DOWN A COUNTDOWN
+// =========================================================
+
+const scrollDownBtn = document.getElementById('scrollDownBtn');
+const countdownSection = document.getElementById('countdown');
+
+if (scrollDownBtn && countdownSection) {
+    scrollDownBtn.addEventListener('click', () => {
+        // Obtenemos la posición (distancia desde la parte superior del documento) de la sección de cuenta regresiva
+        const targetPosition = countdownSection.offsetTop;
+        
+        // Realizamos el scroll suave
+        content.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    });
+}
+// NOTA: Recuerda que 'content' es tu contenedor scrollable principal
+// <div id="content">
+
+// show sections helper (with staggered reveal)
+function revealSections(){
+  content.style.display = 'block'; 
+  content.setAttribute('aria-hidden','false');
+  content.scrollTop = 0; 
+  let delay = 80;
+  sections.forEach((s,i)=>{
+    setTimeout(()=> s.classList.add('visible'), i*delay);
+  });
+}
+function hideSections(){
+  sections.forEach(s=> s.classList.remove('visible'));
+}
+
+// ENTER - start music and show content
+enterBtn.addEventListener('click', ()=>{
+  music.play().catch(()=>{});
+  cover.style.display='none';
+  backBtn.classList.remove('hidden');
+  revealSections();
+});
+
+// BACK button
+backBtn.addEventListener('click', ()=>{
+  hideSections();
+  setTimeout(()=>{
+    cover.style.display='flex';
+    content.style.display = 'none'; 
+    content.setAttribute('aria-hidden','true');
+    backBtn.classList.add('hidden');
+  },350);
+});
+
+// Music control
+let isPlaying = false;
+
+// NUEVA FUNCIÓN: Usa una clase CSS en lugar de cambiar texto
+function updateMusicState() {
+    if (isPlaying) {
+        musicControl.classList.remove('paused'); // Música ON (Muestra music_on.png)
+    } else {
+        musicControl.classList.add('paused');    // Música OFF (Muestra music_off.png)
+    }
+}
+
+	
+
+musicControl.addEventListener('click', ()=>{
+  if(isPlaying){ 
+      music.pause(); 
+      isPlaying=false; 
+  } else { 
+      music.play().catch(()=>{}); 
+      isPlaying=true; 
+  }
+  updateMusicState();
+});
+
+// Aseguramos que el estado visual se actualice cuando el audio se detiene/inicia por eventos externos
+music.addEventListener('play', ()=>{ 
+    isPlaying=true; 
+    updateMusicState(); 
+});
+music.addEventListener('pause', ()=>{ 
+    isPlaying=false; 
+    updateMusicState(); 
+});
+
+// Al cargar, establece el estado inicial (que por defecto es pausa/silencio)
+updateMusicState();
+
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        music.pause();
+        isPlaying = false;
+        updateMusicState();
+    }
+});
+	
+// Countdown
+const target = new Date('Sep 12, 2026 11:00:00').getTime();
+function updateCountdown(){
+  const now = Date.now();
+  const diff = Math.max(0, target - now);
+  const days = Math.floor(diff/(1000*60*60*24));
+  const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((diff%(1000*60))/1000);
+  document.getElementById('days').textContent = days;
+  document.getElementById('hours').textContent = hours;
+  document.getElementById('minutes').textContent = minutes;
+  document.getElementById('seconds').textContent = seconds;
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// RSVP button (WhatsApp)
+document.getElementById('rsvpBtn').addEventListener('click', ()=>{
+  // 1. Capturamos el nombre ingresado por el usuario
+  const guestNameInput = document.getElementById('guestName');
+  const guestName = guestNameInput ? guestNameInput.value.trim() : '';
+
+  // Definimos el mensaje base
+  const baseText = 'Hola, confirmo mi asistencia al bautizo de Ailani';
+  let whatsappText = baseText; // El mensaje siempre comienza con la confirmación base
+
+  if (guestName) {
+      // Si hay nombre, añadimos la firma con un salto de línea (\n\n) para espacio visual.
+      whatsappText += '\n\nAtentamente: ' + guestName;
+  }
+  // NOTA: El texto 'whatsappText' ahora contiene los saltos de línea literales (\n)
+
+  const phone = '5213111449933'; // ⚠️ REEMPLAZA con el número real de confirmación
+
+  // 2. Codificamos el texto y abrimos WhatsApp
+  // El navegador o la librería de WhatsApp maneja los \n (saltos de línea) correctamente.
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(whatsappText)}`,'_blank');
+});
+
+// BACK button image fallback & Name image fallback 
+const backImg = document.querySelector('#backToCover img');
+backImg && backImg.addEventListener('error', ()=>{ document.getElementById('backFallback').style.display='block'; backImg.style.display='none'; });
+
+if(document.querySelector('.nameImg')){
+  const img = document.querySelector('.nameImg');
+  img.addEventListener('error', ()=>{ img.style.display='none'; });
+  img.addEventListener('load', ()=>{ if(img.naturalWidth>0) nameFallback.style.display='none'; });
+}
+
+// =========================================================
+// CAROUSEL & LIGHTBOX LOGIC
+// =========================================================
+
+const slidesEl = document.getElementById('slides');
+const total = slidesEl.children.length;
+let idx = 0; 
+let autoTimer = null; 
+let userInteracted = false;
+const autoAdvanceInterval = 5000; 
+
+// Lightbox elements
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const closeLightboxBtn = document.getElementById('closeLightbox');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+// create dots
+const dotsEl = document.getElementById('dots');
+for(let i=0;i<total;i++){ 
+    const b=document.createElement('button'); 
+    if(i===0) b.classList.add('active'); 
+    b.addEventListener('click', ()=>{ 
+        goTo(i); 
+        userInteraction(); 
+    }); 
+    dotsEl.appendChild(b); 
+}
+
+function updateDots(){ Array.from(dotsEl.children).forEach((d,i)=> d.classList.toggle('active', i===idx)); }
+function goTo(i){ idx = (i+total)%total; slidesEl.style.transform = `translateX(-${idx*100}%)`; updateDots(); }
+function next(){ goTo(idx+1); }
+function prev(){ goTo(idx-1); }
+
+function userInteraction(){ 
+    userInteracted=true; 
+    clearInterval(autoTimer); 
+    setTimeout(startAuto, 15000); 
+}
+
+document.getElementById('next').addEventListener('click', ()=>{ next(); userInteraction(); });
+document.getElementById('prev').addEventListener('click', ()=>{ prev(); userInteraction(); });
+
+// Avance automático
+function startAuto(){ 
+    if(autoTimer) clearInterval(autoTimer); 
+    autoTimer = setInterval(()=>{ 
+        if(!userInteracted) next(); 
+    }, autoAdvanceInterval); 
+}
+startAuto(); 
+
+// Detener avance en hover / touch
+const carousel = document.getElementById('carousel');
+carousel.addEventListener('mouseenter', ()=>{ userInteraction(); });
+carousel.addEventListener('touchstart', ()=>{ userInteraction(); }, {passive:true});
+
+
+// LIGHTBOX (Modal)
+slidesEl.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', (e) => {
+        // Aseguramos que el evento click no se propague si es de los botones de navegación
+        if (e.target.tagName !== 'IMG') return;
+
+        const src = e.target.getAttribute('data-src') || e.target.src;
+        lightboxImg.src = src;
+        lightbox.classList.add('visible');
+    });
+});
+
+// Cerrar lightbox
+closeLightboxBtn.addEventListener('click', () => {
+    lightbox.classList.remove('visible');
+    exitFullscreen();
+});
+
+lightbox.addEventListener('click', (e) => {
+    // Cerrar si se da click fuera de la imagen (en el fondo oscuro)
+    if (e.target === lightbox) {
+        lightbox.classList.remove('visible');
+        exitFullscreen();
+    }
+});
+
+// Fullscreen logic
+fullscreenBtn.addEventListener('click', () => {
+    toggleFullscreen(lightboxImg);
+});
+
+function toggleFullscreen(element) {
+    if (!document.fullscreenElement) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) { /* Safari */
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { /* IE11 */
+            element.msRequestFullscreen();
+        }
+    } else {
+        exitFullscreen();
+    }
+}
+
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+    }
+}
+
+// Small optimization: lazy-load images if supported 
+if('loading' in HTMLImageElement.prototype){ document.querySelectorAll('img').forEach(img=> img.setAttribute('loading','lazy')); }
+
+// Al inicio, aseguramos que content esté oculto.
+content.style.display = 'none';
+
+</script>
+</body>
+
+</html>
+
+
